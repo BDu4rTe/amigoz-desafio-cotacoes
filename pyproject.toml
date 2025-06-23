@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "amigoz-desafio-cotacoes"
+version = "0.1.0"
+description = "desafio tecnico da empresa amigoz"
+authors = ["BDu4rTe <brianschierduarte@outlook.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.1"
+pytest-cov = "^6.2.1"
+blue = "^0.9.1"
+isort = "^6.0.1"
+taskipy = "^1.14.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
