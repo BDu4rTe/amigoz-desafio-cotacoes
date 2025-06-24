@@ -9,13 +9,27 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 
-
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.4.1"
 pytest-cov = "^6.2.1"
-blue = "^0.9.1"
 isort = "^6.0.1"
 taskipy = "^1.14.1"
+black = "^25.1.0"
+
+[tool.pytest.ini_options]
+pythonpath = "."
+addopts = "--doctest-modules"
+markers = [
+    "errors: tests to match raises errors.",
+]
+
+[tool.isort]
+profile = "black"
+line_length = 79
+
+[tool.taskipy.tasks]
+lint = "black --check --diff . && isort --check --diff ."
+test = "pytest -xv --cov=amigoz_desafio_cotacoes"
 
 [build-system]
 requires = ["poetry-core"]
