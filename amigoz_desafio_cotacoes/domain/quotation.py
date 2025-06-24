@@ -10,7 +10,7 @@ class Quotation:
     def __post_init__(self):
         if not isinstance(self.price, int) or self.price <= 0:
             raise ValueError(
-                "Preço deve ser um inteiro não negativo e diferente de zero.",
+                "Price must be a non-negative integer and not equal to zero.",
             )
         if not self.name or not self.kind:
-            raise ValueError("Nome e sigla não podem ser vazios")
+            raise ValueError("Name and kind cannot be empty")
