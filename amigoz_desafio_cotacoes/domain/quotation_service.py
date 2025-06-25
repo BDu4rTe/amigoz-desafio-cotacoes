@@ -12,19 +12,20 @@ logger: logging.Logger = logging.getLogger(__file__)
 
 class QuotationService:
     def __init__(self, repository: QuotationRepository):
-        self.__repo = repository
+        self.__repo: QuotationRepository = repository
 
     async def _fetch_quotation(self, method, name: str) -> Quotation:
         """
         ...
         """
         try:
-            quotation = await method()
+            quotation: Quotation = await method()
             logger.debug(f"Quotation obtained for {name}: {quotation}")
             return quotation
-        except Exception as e:
-            logger.error(f"Failed to get quotation from {name}: {str(e)}")
-            raise ValueError(f"Failed to get quotation from {name}: {str(e)}")
+        except Exception as err:
+            err_msg: str = f"Failed to get quotation from {name}: {str(err)}"
+            logger.error(err_msg)
+            raise ValueError(err_msg)
 
     async def find_best_quotation(self) -> Quotation:
         """
