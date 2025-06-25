@@ -15,21 +15,13 @@ class QuotationService:
         self.__repo: QuotationRepository = repository
 
     async def _fetch_quotation(self, method, name: str) -> Quotation:
-        """
-        ...
-        """
-        try:
-            quotation: Quotation = await method()
-            logger.debug(f"Quotation obtained for {name}: {quotation}")
-            return quotation
-        except Exception as err:
-            err_msg: str = f"Failed to get quotation from {name}: {str(err)}"
-            logger.error(err_msg)
-            raise ValueError(err_msg)
+        quotation: Quotation = await method()
+        logger.debug(f"Quotation obtained for {name}: {quotation}")
+        return quotation
 
     async def find_best_quotation(self) -> Quotation:
         """
-        ...
+        Find the best quotation for buy.
         """
         dollar_task = self._fetch_quotation(
             self.__repo.get_dollar,
