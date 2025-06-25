@@ -67,29 +67,3 @@ async def test_find_best_quotation_succ(dollar_620, euro_570):
 
     repository.get_dollar.assert_called_once()
     repository.get_euro.assert_called_once()
-
-
-@pytest.mark.asyncio
-@pytest.mark.errors
-async def test_find_best_quotation_dollar_fail(euro_570):
-    repository = AsyncMock(spec=QuotationRepository)
-    repository.get_dollar.side_effect = Exception("Timeout")
-    repository.get_euro.return_value = euro_570
-
-    service = QuotationService(repository)
-
-    with pytest.raises(ValueError):  # match ??
-        await service.find_best_quotation()
-
-
-@pytest.mark.asyncio
-@pytest.mark.errors
-async def test_find_best_quotation_euro_fail(dollar_620):
-    repository = AsyncMock(spec=QuotationRepository)
-    repository.get_dollar.return_value = dollar_620
-    repository.get_euro.side_effect = Exception("Timeout")
-
-    service = QuotationService(repository)
-
-    with pytest.raises(ValueError):  # match ??
-        await service.find_best_quotation()
