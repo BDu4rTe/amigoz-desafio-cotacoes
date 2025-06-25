@@ -1,5 +1,6 @@
-from amigoz_desafio_cotacoes.domain.quotation import Quotation
 from pytest import fixture
+
+from amigoz_desafio_cotacoes.domain.quotation import Quotation
 
 
 @fixture

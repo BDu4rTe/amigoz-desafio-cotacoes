@@ -1,13 +1,16 @@
+from unittest.mock import AsyncMock
+
 import pytest
 
 from amigoz_desafio_cotacoes.domain.quotation import Quotation
+from amigoz_desafio_cotacoes.domain.quotation_repository import (
+    QuotationRepository,
+)
 from amigoz_desafio_cotacoes.domain.quotation_service import QuotationService
-from amigoz_desafio_cotacoes.domain.quotation_repository import QuotationRepository
 from tests.conftest import (
     dollar_620,
     euro_570,
 )
-from unittest.mock import AsyncMock
 
 
 def test_quotation_name(dollar_620):

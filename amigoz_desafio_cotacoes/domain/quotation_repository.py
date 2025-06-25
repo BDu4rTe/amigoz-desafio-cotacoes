@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+
 from amigoz_desafio_cotacoes.domain.quotation import Quotation
 
 

@@ -1,9 +1,11 @@
 import asyncio
 import logging
-from amigoz_desafio_cotacoes.domain.quotation import Quotation
-from amigoz_desafio_cotacoes.domain.quotation_repository import QuotationRepository
 from typing import List
 
+from amigoz_desafio_cotacoes.domain.quotation import Quotation
+from amigoz_desafio_cotacoes.domain.quotation_repository import (
+    QuotationRepository,
+)
 
 logger: logging.Logger = logging.getLogger(__file__)
 
