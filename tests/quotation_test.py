@@ -42,6 +42,16 @@ def test_quotation_with_zero_price():
         )
 
 
+@pytest.mark.errors
+def test_quotation_with_float_price():
+    with pytest.raises(ValueError):
+        Quotation(
+            name="dollar",
+            kind="USD",
+            price=6.20,
+        )
+
+
 @pytest.mark.asyncio
 async def test_find_best_quotation_succ(dollar_620, euro_570):
     repository = AsyncMock(spec=QuotationRepository)
